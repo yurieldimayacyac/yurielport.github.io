@@ -17,6 +17,7 @@ body {
   font-family: 'Calibri', 'Times New Roman', Bodoni Moda, 'Liberation Sans', sans-serif;
   background: var(--isabelline);
   color: var(--bistre);
+  font-size: 17px;
 }
 
 :root {
@@ -46,7 +47,7 @@ header h1 {
 
 header p {
   margin: 0 0 1em 0;
-  font-size: 1.3rem;
+  font-size: 1.4rem;
   color: #7a6c4f;
   font-family: 'Bodoni Moda', 'Segoe UI', Arial, sans-serif;
   letter-spacing: 0.02em;
@@ -88,12 +89,12 @@ h2, h3 {
 }
 
 h2 {
-  font-size: 2rem;
+  font-size: 2.1rem;
   margin-bottom: 0.5rem;
 }
 
 h3 {
-  font-size: 1.3rem;
+  font-size: 1.4rem;
   margin-bottom: 0.3rem;
 }
 
@@ -151,10 +152,14 @@ a:hover {
   object-fit: contain;
 }
 
-.empennage-image .project-gif {
-  max-width: 20vw;
-  min-width: 180px;
-  max-height: 50vh;
+.empennage-image-container .empennage-float-image {
+  max-width: 100%;
+  min-width: auto;
+  max-height: 35vh;
+  margin-top: 0.5rem;
+  width: 100%;
+  object-fit: cover;
+  aspect-ratio: 16 / 9;
 }
 
 .project-video {
@@ -168,17 +173,23 @@ a:hover {
   border-radius: 10px;
   box-shadow: 0 4px 16px rgba(65, 65, 65, 0.10);
   object-fit: contain;
+  aspect-ratio: 16 / 9;
 }
 
-.empennage-image .project-video {
-  max-width: 25vw;
-  min-width: 200px;
-  max-height: 50vh;
+.empennage-image-container .project-video {
+  max-width: 100%;
+  min-width: auto;
+  max-height: 25vh;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
 }
 
 .video-caption {
   text-align: justify;
-  font-size: 0.98rem;
+  font-size: 1.08rem;
   color: var(--onyx);
   margin-bottom: 1.5rem;
 }
@@ -237,6 +248,8 @@ a:hover {
   }
 }
 
+
+
 .robot-image-container {
   float: right;
   margin: 0 0 1rem 1.5rem;
@@ -267,15 +280,21 @@ a:hover {
   object-fit: contain;
 }
 
-.empennage-float-image {
+.empennage-image-container {
   float: right;
   margin: 0 0 1rem 1.5rem;
   max-width: 25vw;
   min-width: 200px;
   width: 40%;
+}
+
+.empennage-float-image {
+  width: 100%;
   height: auto;
   border-radius: 10px;
   box-shadow: 0 4px 16px rgba(65, 65, 65, 0.10);
+  display: block;
+  margin-bottom: 0.5rem;
 }
 
 .vstab-image-container {
@@ -312,7 +331,7 @@ a:hover {
     max-width: 150px;
   }
   
-  .empennage-float-image {
+  .empennage-image-container {
     float: none;
     display: block;
     margin: 0.5rem auto 1rem auto;
@@ -363,6 +382,12 @@ a:hover {
   transform: translateY(-4px) scale(1.012);
 }
 
+.project::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
 .skills-category {
   margin-bottom: 0.7rem;
 }
@@ -375,7 +400,7 @@ a:hover {
 }
 
 .skills-list span {
-  font-size: 1.1rem;
+  font-size: 1.2rem;
   font-weight: 500;
   color: var(--bistre);
   background: var(--peach-yellow);
@@ -521,61 +546,170 @@ a:hover {
 }
 
 @media (max-width: 768px) {
+  .main-columns {
+    flex-direction: column;
+    padding: 0 1rem;
+    gap: 1rem;
+  }
+  
   .left-column {
+    order: 2;
+    max-width: 100%;
+    min-width: auto;
+    padding-top: 1rem;
+  }
+  
+  .right-column {
+    order: 1;
+    flex: 1 1 0;
+    padding-top: 1rem;
+  }
+  
+  .project-image, .project-gif, .project-video {
     max-width: 100%;
     min-width: auto;
   }
-  .right-column {
-    flex: 1 1 0;
-  }
-  .main-columns {
-    padding: 0 2vw;
-    gap: 2vw;
-  }
-  .project-image, .project-gif, .project-video {
-    max-width: 80vw;
-  }
+  
   .profile-pic {
-    width: 20vw;
-    min-width: 100px;
+    width: 30vw;
+    min-width: 120px;
+    max-width: 200px;
   }
+  
   .certification-image {
     max-width: 25vw;
-    min-width: 100px;
+    min-width: 120px;
+    max-height: 150px;
   }
+  
   .education-logo {
     max-width: 30vw;
-    min-width: 120px;
+    min-width: 150px;
+    max-height: 180px;
+  }
+  
+  .vstab-float-image, .empennage-float-image, .robot-image-container, .education-float-image {
+    float: none;
+    display: block;
+    margin: 1rem auto;
+    width: 80%;
+    max-width: 300px;
+  }
+  
+  .vstab-float-image, .robot-float-image {
+    width: 100%;
+    margin-bottom: 0.5rem;
+  }
+  
+  .project, .skills-category, .education-panel {
+    padding: 1.5rem 1rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  header {
+    padding: 2rem 1rem 1.5rem 1rem;
+  }
+  
+  header h1 {
+    font-size: 2.5rem;
+  }
+  
+  header p {
+    font-size: 1.1rem;
+  }
+  
+  h2 {
+    font-size: 1.8rem;
+  }
+  
+  h3 {
+    font-size: 1.2rem;
+  }
+  
+  .skills-list {
+    gap: 0.6rem;
+  }
+  
+  .skills-list span {
+    font-size: 1rem;
+    padding: 0.3rem 0.6rem;
   }
 }
 
 @media (max-width: 480px) {
-  .left-column {
-    max-width: 100%;
+  .main-columns {
+    padding: 0 0.5rem;
+    gap: 0.5rem;
   }
+  
+  .left-column, .right-column {
+    padding-top: 0.5rem;
+  }
+  
   .project, .skills-category, .education-panel {
-    padding: 1rem 0.5rem 0.5rem 0.5rem;
-    min-height: auto;
+    padding: 1rem 0.8rem;
+    margin-bottom: 1rem;
   }
+  
+  header {
+    padding: 1.5rem 0.8rem 1rem 0.8rem;
+  }
+  
   header h1 {
-    font-size: 1.8rem;
+    font-size: 2rem;
+    letter-spacing: 0.1em;
   }
+  
+  header p {
+    font-size: 1rem;
+  }
+  
   h2 {
-    font-size: 1.2rem;
+    font-size: 1.5rem;
   }
+  
+  h3 {
+    font-size: 1.1rem;
+  }
+  
   .project-image, .project-gif, .project-video {
-    max-width: 90vw;
+    max-width: 100%;
+    margin: 0.5rem auto;
   }
+  
   .profile-pic {
-    width: 25vw;
-    min-width: 80px;
+    width: 35vw;
+    min-width: 100px;
+    max-width: 180px;
   }
+  
   .certification-image {
     max-width: 30vw;
-    min-width: 80px;
+    min-width: 100px;
+    max-height: 120px;
   }
+  
   .education-logo {
     max-width: 35vw;
-    min-width: 100px;
+    min-width: 120px;
+    max-height: 150px;
+  }
+  
+  .vstab-float-image, .empennage-float-image, .robot-image-container, .education-float-image {
+    width: 90%;
+    max-width: 250px;
+  }
+  
+  .skills-list {
+    gap: 0.5rem;
+  }
+  
+  .skills-list span {
+    font-size: 0.9rem;
+    padding: 0.25rem 0.5rem;
+  }
+  
+  .video-caption {
+    font-size: 0.9rem;
   }
 } 
