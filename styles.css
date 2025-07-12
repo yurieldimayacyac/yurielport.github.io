@@ -555,16 +555,24 @@ a:hover {
   }
   
   .left-column {
-    order: 2;
+    order: 4;
     max-width: 100%;
     min-width: auto;
     padding-top: 1rem;
   }
   
   .right-column {
-    order: 1;
+    order: 3;
     flex: 1 1 0;
     padding-top: 1rem;
+  }
+  
+  .left-column #about {
+    order: 1;
+  }
+  
+  .left-column .section {
+    order: 2;
   }
   
   .project-image, .project-gif, .project-video {
