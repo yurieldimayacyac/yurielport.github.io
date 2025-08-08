@@ -93,6 +93,10 @@ h2 {
   margin-bottom: 0.5rem;
 }
 
+#projects h2 {
+  margin-bottom: 2rem;
+}
+
 h3 {
   font-size: 1.4rem;
   margin-bottom: 0.3rem;
@@ -190,10 +194,13 @@ a:hover {
 }
 
 .video-caption {
-  text-align: justify;
-  font-size: 1.08rem;
-  color: var(--onyx);
-  margin-bottom: 1.5rem;
+  text-align: center;
+  font-size: 0.9rem;
+  color: #666;
+  margin: 0.5rem auto;
+  font-style: italic;
+  max-width: 400px;
+  width: 100%;
 }
 
 .certification-image {
@@ -269,6 +276,58 @@ a:hover {
   margin-bottom: 0.5rem;
 }
 
+.robot-main-images-container {
+  display: flex;
+  gap: 0;
+  margin: 0 0 2rem 0;
+  width: 100%;
+  border: 1px solid var(--peach-yellow);
+  border-radius: 10px;
+  padding: 1rem;
+  background: var(--isabelline);
+}
+
+.robot-left-column {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.robot-left-image {
+  text-align: center;
+}
+
+.robot-right-column {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.robot-right-image {
+  text-align: center;
+}
+
+.robot-right-image:last-child {
+  margin-top: auto;
+}
+
+.line-following-gif {
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+}
+
+.robot-main-image {
+  width: 100%;
+  max-width: 400px;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 4px 16px rgba(65, 65, 65, 0.10);
+  display: block;
+  margin: 0 auto 0.5rem auto;
+}
+
 .education-float-image {
   float: right;
   margin: 0 0 1rem 1.5rem;
@@ -323,6 +382,22 @@ a:hover {
     margin: 0.5rem auto 1rem auto;
     width: 80%;
     max-width: 250px;
+  }
+  
+  .robot-main-images-container {
+    flex-direction: column;
+    gap: 1rem;
+    margin: 0 0 1.5rem 0;
+    padding: 0.5rem;
+  }
+  
+  .robot-left-column,
+  .robot-right-column {
+    gap: 0.5rem;
+  }
+  
+  .robot-main-image {
+    max-width: 95%;
   }
   
   .education-float-image {
@@ -532,6 +607,10 @@ a:hover {
   width: 100%;
   box-sizing: border-box;
   padding-top: 0.5rem;
+  position: sticky;
+  top: 2rem;
+  height: calc(100vh - 4rem);
+  overflow-y: auto;
 }
 
 @media (max-width: 1200px) {
@@ -565,6 +644,9 @@ a:hover {
     order: 3;
     flex: 1 1 0;
     padding-top: 1rem;
+    position: static;
+    height: auto;
+    overflow-y: visible;
   }
   
   .left-column #about {
